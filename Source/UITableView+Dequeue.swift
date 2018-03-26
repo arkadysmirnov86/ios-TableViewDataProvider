@@ -36,18 +36,18 @@ extension UITableView {
         return dequeueReusableCell(withIdentifier: String(describing: cellType), for: indexPath) as! Cell
     }
     
-    func tp_register<HeaderFooter: UITableViewHeaderFooterView>(headerFooterType: HeaderFooter.Type, bundle: Bundle = .main, tryNib: Bool = true) {
+    func tp_register<HeaderFooter: UITableViewCell>(headerFooterType: HeaderFooter.Type, bundle: Bundle = .main, tryNib: Bool = true) {
         let identifier = String(describing: headerFooterType)
         
         if tryNib, let nib = UINib(safeWithName: identifier, bundle: bundle) {
-            register(nib, forHeaderFooterViewReuseIdentifier: identifier)
+            register(nib, forCellReuseIdentifier: identifier)
         } else {
-            register(headerFooterType, forHeaderFooterViewReuseIdentifier: identifier)
+            register(headerFooterType, forCellReuseIdentifier: identifier)
         }
     }
     
-    func tp_dequeueHeaderFooter<HeaderFooter: UITableViewHeaderFooterView>(of viewType: HeaderFooter.Type) -> HeaderFooter {
-        return dequeueReusableHeaderFooterView(withIdentifier: String(describing: viewType)) as! HeaderFooter
+    func tp_dequeueHeaderFooter<HeaderFooter: UITableViewCell>(of viewType: HeaderFooter.Type) -> HeaderFooter {
+        return dequeueReusableCell(withIdentifier: String(describing: viewType)) as! HeaderFooter
     }
     
 }

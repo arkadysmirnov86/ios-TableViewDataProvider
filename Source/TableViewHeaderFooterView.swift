@@ -7,7 +7,7 @@
 
 import UIKit
 
-open class TableViewHeaderFooterView: UITableViewHeaderFooterView {
+open class TableViewHeaderFooterView: UITableViewCell {
 
     open class var estimatedHeight: CGFloat {
         return height ?? 44.0
