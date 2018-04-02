@@ -96,7 +96,7 @@ extension TableViewDataProvider {
             
             configuration(cell)
             
-            return cell
+            return cell.contentView
         }
     }
     
